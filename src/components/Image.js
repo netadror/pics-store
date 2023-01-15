@@ -6,6 +6,7 @@ function Image({ className, img }) {
 
     const [isHovered, setIsHovered] = useState(false)
     const { toggleFavorite, addToCart, removeFromCart, cartItems } = useContext(Context)
+
     function toggleHeart() {
         if (img.isFavorite) {
             return <i className="ri-heart-fill favorite" onClick={() => toggleFavorite(img.id)}></i>
