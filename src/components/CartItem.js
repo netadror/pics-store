@@ -1,11 +1,14 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { Context } from "../Context"
+import useHover from "../hooks/useHover"
+import PropTypes from 'prop-types'
 
 function CartItem({ item }) {
-    const [isBinHovered, setIsBinHovered] = useState(false)
+    // const [isBinHovered, setIsBinHovered] = useState(false)
+    const [hovered, ref] = useHover()
     const { removeFromCart } = useContext(Context)
 
-    const iconClassName = isBinHovered ? "ri-delete-bin-fill" : "ri-delete-bin-line"
+    const iconClassName = hovered ? "ri-delete-bin-fill" : "ri-delete-bin-line"
 
 
     return (
@@ -13,8 +16,9 @@ function CartItem({ item }) {
             <i
                 className={iconClassName}
                 onClick={() => removeFromCart(item.id)}
-                onMouseEnter={() => setIsBinHovered(true)}
-                onMouseLeave={() => setIsBinHovered(false)}
+                ref={ref}
+            // onMouseEnter={() => setIsBinHovered(true)}
+            // onMouseLeave={() => setIsBinHovered(false)}
 
             ></i>
             <img src={item.url} width="200px" />
@@ -23,6 +27,11 @@ function CartItem({ item }) {
     )
 }
 
+CartItem.propTypes = {
+    item: PropTypes.shape({
+        url: PropTypes.string.isRequired
+    })
+}
 export default CartItem
 
     // const itemPrice = getRandomIntInclusive(1, 10)

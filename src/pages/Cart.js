@@ -9,6 +9,7 @@ function Cart() {
     const totalCostDisplay = totalCost.toLocaleString("en-US", { style: "currency", currency: "USD" })
 
     console.log('totalCost', totalCost)
+    console.log('cartItems', cartItems)
 
 
     const cartItemElements = cartItems.map(item => (
