@@ -21,7 +21,7 @@ function CartItem({ item }) {
             // onMouseLeave={() => setIsBinHovered(false)}
 
             ></i>
-            <img src={item.url} width="200px" />
+            <img src={item.src.medium} width="150px" />
             <p>$5</p>
         </div>
     )
@@ -33,10 +33,3 @@ CartItem.propTypes = {
     })
 }
 export default CartItem
-
-    // const itemPrice = getRandomIntInclusive(1, 10)
-    // function getRandomIntInclusive(min, max) {
-    //     min = Math.ceil(min);
-    //     max = Math.floor(max);
-    //     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-    // }
