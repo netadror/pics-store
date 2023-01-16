@@ -21,7 +21,7 @@ function CartItem({ item }) {
             // onMouseLeave={() => setIsBinHovered(false)}
 
             ></i>
-            <img src={item.src.medium} width="150px" />
+            <img src={item.src.medium} />
             <p>$5</p>
         </div>
     )

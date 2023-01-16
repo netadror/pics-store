@@ -22,9 +22,12 @@ function Photos() {
     ))
 
     return (
-        <main className="photos">
-            {imageElements}
-        </main>
+        <div>
+            <section><h2>The best dog photos for sale</h2></section>
+            <main className="photos">
+                {imageElements}
+            </main>
+        </div>
     )
 }
 
