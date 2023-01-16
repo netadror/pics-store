@@ -5,7 +5,6 @@ import useHover from "../hooks/useHover"
 
 function Image({ className, img }) {
     // const [isHovered, setIsHovered] = useState(false)
-
     const [hovered, ref] = useHover()
     const { toggleFavorite, addToCart, removeFromCart, cartItems } = useContext(Context)
 
@@ -27,7 +26,6 @@ function Image({ className, img }) {
         }
     }
 
-
     return (
         <div
             // onMouseEnter={() => setIsHovered(true)}
@@ -35,7 +33,7 @@ function Image({ className, img }) {
             ref={ref}
             className={`${className} image-container`}
         >
-            <img src={img.url} className="image-grid" />
+            <img src={img.src.medium} className="image-grid" />
             {toggleHeart()}
             {cartIcon()}
 
@@ -46,7 +44,6 @@ function Image({ className, img }) {
 Image.propTypes = {
     className: PropTypes.string,
     img: PropTypes.shape({
-        id: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         isFavorite: PropTypes.bool
     })

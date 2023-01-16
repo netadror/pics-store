@@ -8,9 +8,12 @@ function Header() {
 
     return (
         <header>
-            <Link to="/"><h2>PicShop</h2></Link>
+            <Link to="/"><h2>DogPicShop</h2></Link>
             <Link to="/cart">
-                <i className={`${cartClassName} ri-fw ri-2x`}></i>
+                <div className="checkout-container">
+                    <h2>Checkout</h2>
+                    <i className={`${cartClassName} ri-fw ri-2x`}></i>
+                </div>
             </Link>
         </header>
     )

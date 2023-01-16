@@ -7,11 +7,19 @@ function ContextProvidor({ children }) {
     const [allPhotos, setAllPhotos] = useState([])
     const [cartItems, setCartItems] = useState([])
 
-    const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
+    const url = 'https://api.pexels.com/v1/search?query=dogs&per_page=15'
+
+    const options = {
+        method: 'GET',
+        headers: {
+            Authorization: '563492ad6f91700001000001129df32ba082468e949fc828b9190e77'
+        }
+    };
+
     useEffect(() => {
-        fetch(url)
+        fetch(url, options)
             .then(res => res.json())
-            .then(data => setAllPhotos(data))
+            .then(data => setAllPhotos(data.photos))
     }, [])
 
     function toggleFavorite(id) {
@@ -28,11 +36,8 @@ function ContextProvidor({ children }) {
 
     }
     function addToCart(newItem) {
-        console.log('newItem added', newItem)
         setCartItems(prevItems => [...prevItems, newItem])
-        console.log('cartItems', cartItems)
     }
-
     function removeFromCart(id) {
         setCartItems(prevItems => prevItems.filter(item => item.id !== id))
     }
